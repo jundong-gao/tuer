@@ -1,0 +1,19 @@
+body {
+  /*padding: 50px;*/
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+h3{
+  margin: 0; padding: 0;
+}
+a {
+  color: #00B7FF;
+}
+p.glyphicon-ok-sign{
+  color: green;
+  padding-top: 8px;
+}
+p.glyphicon-remove-sign{
+  color:  red;
+  padding-top: 8px;
+}
+
