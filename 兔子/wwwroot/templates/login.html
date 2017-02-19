@@ -1,23 +1,23 @@
-<div class="container">
+<div class="container" ng-app="loginApp" ng-controller="loginCtrl">
     <h4>登陆兔儿</h4>
     <hr>
-    <form class="form-horizontal">
+    <form class="form-horizontal" ng-submit="postForm()">
         <div class="form-group">
-            <label for="inputEmail3" class="col-sm-2 control-label">注册邮箱</label>
-            <div class="col-sm-6">
-                <input type="email" class="form-control" id="inputEmail3" placeholder="Email Address...">
+            <label for="inputText3" class="col-sm-2 control-label">用户名</label>
+            <div class="col-sm-4">
+                <input type="text" ng-model="formData.username" class="form-control" id="inputText3" placeholder="Username...">
             </div>
         </div>
         <div class="form-group">
-            <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
-            <div class="col-sm-6">
-                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+            <label for="inputPassword3"  class="col-sm-2 control-label">密码</label>
+            <div class="col-sm-4">
+                <input type="password" ng-model="formData.password" class="form-control" id="inputPassword3" placeholder="Password">
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <a href="">忘记密码</a>  <a href="">注册</a>
+                <a href="">忘记密码</a>&#x3000;<a href="#/reg">注册</a>
             </div>
         </div>
 

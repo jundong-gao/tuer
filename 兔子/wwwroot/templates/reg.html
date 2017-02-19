@@ -1,11 +1,11 @@
 <div class="container" ng-app="regApp" ng-controller="regCtrl">
     <h4>兔儿注册</h4>
     <hr>
-    <form class="form-horizontal" name="form">
+    <form class="form-horizontal" name="form" ng-submit="postForm()">
         <div class="form-group">
             <label for="inputText3" class="col-sm-2 control-label">昵称</label>
             <div class="col-sm-4">
-                <input type="text" name="username" ng-model="username" class="form-control" id="inputText3" placeholder="Your Nick..." ng-pattern=" '^[\u4e00-\u9fa5a-zA-Z0-9_]{4,10}$' "
+                <input type="text" name="username" ng-model="formData.username" class="form-control" id="inputText3" placeholder="Your Nick..." ng-pattern=" '^[\u4e00-\u9fa5a-zA-Z0-9_]{4,10}$' "
                     required>
             </div>
             <p class="col-sm-4 glyphicon glyphicon-remove-sign" ng-show="form.username.$dirty && form.username.$invalid">请输入4-12位，由数字,字母,下划线,汉字组成的昵称</p>
@@ -14,7 +14,7 @@
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">注册邮箱</label>
             <div class="col-sm-4">
-                <input type="email" name="email" ng-model="email" class="form-control" id="inputEmail3" placeholder="Email Address..." required>
+                <input type="email" name="email" ng-model="formData.email" class="form-control" id="inputEmail3" placeholder="Email Address..." required>
             </div>
             <p class="col-sm-4 glyphicon glyphicon-remove-sign" ng-show="form.email.$dirty && form.email.$invalid">请输入正确的邮箱格式</p>
             <p class="col-sm-4 glyphicon glyphicon-ok-sign" ng-show="form.email.$valid"></p>
@@ -22,27 +22,27 @@
         <div class="form-group">
             <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
             <div class="col-sm-4">
-                <input type="password" name="password" ng-model="password" class="form-control" id="inputPassword3" placeholder="Password">
+                <input type="password" name="password" ng-model="formData.password" class="form-control" id="inputPassword3" placeholder="Password">
             </div>
             <p ng-show="form.password.$dirty && !form.password.$empty" class="col-sm-4 glyphicon glyphicon-ok-sign"></p>
         </div>
         <div class="form-group">
             <label for="inputPassword3" class="col-sm-2 control-label">确认密码</label>
             <div class="col-sm-4">
-                <input type="password" name="repassword" ng-model="repassword" class="form-control" id="inputPassword3" placeholder="Password Again...">
+                <input type="password" name="repassword" ng-model="formData.repassword" class="form-control" id="inputPassword3" placeholder="Password Again...">
             </div>
-            <p ng-show="form.repassword.$dirty && password != repassword" class="col-sm-4 glyphicon glyphicon-remove-sign">两次输入的密码不一致</p>
-            <p ng-show="form.repassword.$dirty && password == repassword" class="col-sm-4 glyphicon glyphicon-ok-sign"></p>
+            <p ng-show="form.repassword.$dirty && formData.password != formData.repassword" class="col-sm-4 glyphicon glyphicon-remove-sign">两次输入的密码不一致</p>
+            <p ng-show="form.repassword.$dirty && formData.password == formData.repassword" class="col-sm-4 glyphicon glyphicon-ok-sign"></p>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-12">
                 <p>我们会把激活邮件寄到你的信箱，如果发现收件箱里没有，可以检查下垃圾邮件夹中是否有邮件噢！</p>
-                <a href="">已有账号，我去登陆啦</a>
+                <a href="#/login">已有账号，我去登陆啦</a>
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-primary">注册！</button>
+                <button type="submit" class="btn btn-primary" ng-disabled="form.username.$dirty && form.username.$invalid || form.email.$dirty && form.email.$invalid || form.repassword.$dirty && formData.password != formData.repassword">注册！</button>
             </div>
         </div>
     </form>
