@@ -1,0 +1,53 @@
+<div class="container">
+    <h2>写日记</h2>
+    <hr>
+    <p>录一段语音日记吧<a href="">开始录制</a></p>
+    <form class="form-horizontal" ng-submit="postForm()">
+        <div class="form-group">
+            <div class="col-sm-3">
+                <select class="form-control ">
+                    <option value="">天气日记</option>
+                    <option value="">心情日记</option>
+                    <option value="">默认日记</option>
+                </select>
+            </div>
+            
+            <a href="#/notebook">管理我的日记本</a>
+        </div>
+        
+       
+        <div class="form-group">
+            <label for="inputText" class="col-sm-1 control-label" style="text-align: left">心情:</label>
+            <div class="col-sm-4">
+                <input type="text" ng-model="" class="form-control" id="inputText" placeholder="喜.怒.哀.乐">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputText" class="col-sm-1 control-label" style="text-align: left">天气:</label>
+            <div class="col-sm-4">
+                <input type="text" ng-model="" class="form-control" id="inputText" placeholder="引.晴.雨.风...">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputText" class="col-sm-1 control-label" style="text-align: left">地点:</label>
+            <div class="col-sm-4">
+                <input type="text" ng-model="" class="form-control" id="inputText" placeholder="写日记的地点">
+            </div>
+        </div>
+       
+        <textarea class="form-control" rows="3" placeholder="日记内容"></textarea>
+
+        <div>
+            <label><input type="checkbox">只有自己可见</label>
+            <label><input type="checkbox">不允许被回复</label>
+            <span>还可以输入<b>22000</b> / 22000个字符</span>
+        </div>
+        
+        <div class="form-group">
+            <div class=" col-sm-10">
+                <button type="submit" class="btn btn-primary">写日记</button>
+            </div>
+        </div>
+        
+    </form>
+</div>

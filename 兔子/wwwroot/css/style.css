@@ -31,21 +31,37 @@ p.glyphicon-remove-sign{
   color:  red;
   padding-top: 8px;
 }
-.bigAlert{
-  height: 100%;
-    width: 100%;
-  display: none;
-}
-.alert{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    left: 0;
-    top: 0;
-    background-color: #ccc;
-    height: 100%;
-    width: 100%;
-    
+input[type=color]{
+  border: none;
+  width: 40px;
+  height: 22px;
+  position: relative;
+  top: 5px;
 }
 
+/*上传头像  input：file的样式设置*/
+.file {
+    position: relative;
+    display: inline-block;
+    background: #F1F1F1;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: black;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+}
+.file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.file:hover {
+    box-shadow: 0 0 1px  #ccc;
+    text-decoration: none;
+    color: black;
+}

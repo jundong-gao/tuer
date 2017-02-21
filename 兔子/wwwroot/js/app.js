@@ -46,4 +46,32 @@ routerApp.config(function($stateProvider, $urlRouterProvider){
             url:'/help',
             templateUrl : 'templates/help.html'
         })
+        .state('forgot',{
+            url : '/forgot',
+            templateUrl : 'templates/forgot.html'
+        })
+        .state('diary',{
+            url : '/diary/write',
+            templateUrl : 'templates/diary.html'
+        })
+        .state('notebook',{
+            url : '/notebook',
+            templateUrl : 'templates/notebook.html'
+        })
+        .state('set',{
+            url : '/set',
+            templateUrl : 'templates/set.html'
+        })
+        .state('pwd',{
+            url :'/set/pwd',
+            templateUrl : 'templates/pwd.html'
+        })
+        .state('apply',{
+            url : '/set/apply',
+            templateUrl : 'templates/apply.html'
+        })
+        .state('avatar',{
+            url : '/set/avatar',
+            templateUrl : 'templates/avatar.html'
+        })
 })

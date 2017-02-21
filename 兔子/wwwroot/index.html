@@ -44,26 +44,23 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#" title="首页">首页<span class="sr-only">(current)</span></a></li>
                 <li><a href="#/find" title="发现">发现</a></li>
-                <li class="dropdown"><a href="" title="公众号" onclick="alert()">微信公众号</a></li>
+                <li class="dropdown"><a href="" title="公众号">微信公众号</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <li><a href="#/set">账号设置</a></li>
+                <li><a href="#/diary/write">写日记</a></li>
                 <li><a href="#/reg">注册</a></li>
-                <li class="dropdown" ng-if="!data.user"><a href="#/login">登陆</a></li>
-                <li ng-if="data.user"><a href="退出">退出</a></li>
+                <li class="dropdown"><a href="#/login">登陆</a></li>
             </ul>
         </div>
     </nav>
-    <div class="bigAlert">
-        <div class="alert">
-            <img src="./images/二维码.png" alt="">
-        </div>
-    </div>
+       
     
    
     <!--首先在首页定义一个视图，让路由来控制-->
     <div ui-view></div>    
-
     
+
     <footer>
         
         <div class="container">
