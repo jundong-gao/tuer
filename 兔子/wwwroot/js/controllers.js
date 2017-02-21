@@ -12,6 +12,7 @@ regApp.controller('regCtrl', function ($scope, $http) {
         }).success(function (data) {
             console.log(data.code + ":" +data.message)
             if (data.code == 'success') {
+                $scope.data = data
                 location.href = '#/index'
             }
             else{
@@ -33,6 +34,7 @@ loginApp.controller('loginCtrl',function($scope,$http){
             headers : {'Content-Type': 'application/x-www-form-urlencoded'}
         }).success(function(data){
             if(data.code == 'success'){
+                $scope.data = data
                location.href = '#/index'
             }
             else{

@@ -2,8 +2,17 @@ body {
   /*padding: 50px;*/
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-h3{
-  margin: 0; padding: 0;
+h1, h2, h3, h4, h5, h6 {
+    margin: 10px 0;
+    font-family: 'Telex',sans-serif;
+    font-weight: bold;
+    line-height: 1;
+    color: #317eac;
+}
+h6{
+  color: #666;
+  font-size: 12px;
+  margin: 15px 0;
 }
 a {
   color: #00B7FF;

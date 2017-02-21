@@ -44,7 +44,11 @@ module.exports = function (app) {
                     res.status(200).json({ code: 'error', message: '数据库错误' })
                 }
                 req.session.user = newUser;
-                res.json({ code: 'success', message: '注册成功' })
+                res.json({
+                    code : 'success',
+                    message : '注册成功',
+                    user:req.session.user
+                })
             })
         })
     })
@@ -68,7 +72,11 @@ module.exports = function (app) {
             }
             // 将用户信息存到session中
             req.session.user = user;
-            res.status(200).json({code:'success',message:'登陆成功'})
+            res.status(200).json({
+                code:'success',
+                message:'登陆成功',
+                user:req.session.user
+            })
         })
     })
 }

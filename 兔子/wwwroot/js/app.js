@@ -34,4 +34,16 @@ routerApp.config(function($stateProvider, $urlRouterProvider){
                 }
             }
         })
+        .state('find',{
+            url : '/find',
+            templateUrl : 'templates/find.html'
+        })
+        .state('about',{
+            url:'/about',
+            templateUrl : 'templates/about.html'
+        })
+        .state('help',{
+            url:'/help',
+            templateUrl : 'templates/help.html'
+        })
 })
