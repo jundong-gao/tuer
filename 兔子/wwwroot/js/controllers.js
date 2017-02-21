@@ -3,7 +3,7 @@
 var regApp = angular.module('regApp', []);
 regApp.controller('regCtrl', function ($scope, $http) {
     $scope.postForm = function () {
-        console.log($scope.formData)
+        // console.log($scope.formData)
         $http({
             method: 'POST',
             url: '/reg',
@@ -35,7 +35,8 @@ loginApp.controller('loginCtrl',function($scope,$http){
         }).success(function(data){
             if(data.code == 'success'){
                 $scope.data = data
-               location.href = '#/index'
+                console.log($scope.data.user)
+                location.href = '#/index'
             }
             else{
                 alert(data.message)

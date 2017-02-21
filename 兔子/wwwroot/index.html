@@ -32,6 +32,8 @@
     <script src="js/filters.js"></script>-->
     <!--所有的服务
     <script src="js/services.js"></script>-->
+    <!--alert-->
+    <script src="js/alert.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-default">
@@ -42,7 +44,7 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#" title="首页">首页<span class="sr-only">(current)</span></a></li>
                 <li><a href="#/find" title="发现">发现</a></li>
-                <li class="dropdown"><a href="" title="公众号">微信公众号</a></li>
+                <li class="dropdown"><a href="" title="公众号" onclick="alert()">微信公众号</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#/reg">注册</a></li>
@@ -51,7 +53,12 @@
             </ul>
         </div>
     </nav>
-
+    <div class="bigAlert">
+        <div class="alert">
+            <img src="./images/二维码.png" alt="">
+        </div>
+    </div>
+    
    
     <!--首先在首页定义一个视图，让路由来控制-->
     <div ui-view></div>    

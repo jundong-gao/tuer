@@ -2,6 +2,12 @@ body {
   /*padding: 50px;*/
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+html,body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
 h1, h2, h3, h4, h5, h6 {
     margin: 10px 0;
     font-family: 'Telex',sans-serif;
@@ -24,5 +30,22 @@ p.glyphicon-ok-sign{
 p.glyphicon-remove-sign{
   color:  red;
   padding-top: 8px;
+}
+.bigAlert{
+  height: 100%;
+    width: 100%;
+  display: none;
+}
+.alert{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #ccc;
+    height: 100%;
+    width: 100%;
+    
 }
 
