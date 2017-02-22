@@ -65,3 +65,26 @@ input[type=color]{
     text-decoration: none;
     color: black;
 }
+/*关于侧边栏的样式设置*/
+.aside .tools .active{
+    background-color: #4B8DF9;
+    border:1px solid #4B8DF9;
+}
+.aside .tools .active a{
+  	color: white;
+}
+.aside .tools a{
+  	color:  black;
+  	font-weight: bold;
+}
+.aside .tools a:hover{
+	text-decoration: none;
+}
+.aside ul{
+	list-style: none;
+	padding: 0;
+}
+.aside ul li{
+	padding-bottom: 5px;
+	border-bottom: 0.5px dotted #ccc;
+}

@@ -74,4 +74,18 @@ routerApp.config(function($stateProvider, $urlRouterProvider){
             url : '/set/avatar',
             templateUrl : 'templates/avatar.html'
         })
+        .state('user_index',{
+            url: '/user_index',
+            views : {
+                '':{
+                    templateUrl : 'templates/user_index.html'
+                },
+                'main@user_index':{
+                    templateUrl : 'templates/dynamic.html'
+                },
+                'aside@user_index':{
+                    templateUrl:'templates/aside.html'
+                }
+            }
+        })
 })
