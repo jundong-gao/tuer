@@ -85,6 +85,18 @@ input[type=color]{
 	padding: 0;
 }
 .aside ul li{
-	padding-bottom: 5px;
+	padding: 5px 0;
 	border-bottom: 0.5px dotted #ccc;
+}
+.user-box{
+  padding: 20px;
+  padding-bottom: 5px;;
+  background-color: #F1F1F1;
+}
+.bookcover{
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  margin-right: 5px;
+  background-color: red;
 }

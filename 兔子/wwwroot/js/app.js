@@ -88,4 +88,18 @@ routerApp.config(function($stateProvider, $urlRouterProvider){
                 }
             }
         })
+        .state('user',{
+            url : '/user',
+            views : {
+                '' : {
+                    templateUrl : 'templates/user.html'
+                },
+                'profile@user' :{
+                    templateUrl : 'templates/profile.html'
+                },
+                'user_aside@user':{
+                    templateUrl : 'templates/user_aside.html'
+                }
+            }
+        })
 })

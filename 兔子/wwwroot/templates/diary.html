@@ -19,27 +19,39 @@
         <div class="form-group">
             <label for="inputText" class="col-sm-1 control-label" style="text-align: left">心情:</label>
             <div class="col-sm-4">
-                <input type="text" ng-model="" class="form-control" id="inputText" placeholder="喜.怒.哀.乐">
+                <input type="text" class="form-control" id="inputText" placeholder="喜.怒.哀.乐">
             </div>
         </div>
         <div class="form-group">
             <label for="inputText" class="col-sm-1 control-label" style="text-align: left">天气:</label>
             <div class="col-sm-4">
-                <input type="text" ng-model="" class="form-control" id="inputText" placeholder="引.晴.雨.风...">
+                <input type="text" class="form-control" id="inputText" placeholder="引.晴.雨.风...">
             </div>
         </div>
         <div class="form-group">
             <label for="inputText" class="col-sm-1 control-label" style="text-align: left">地点:</label>
             <div class="col-sm-4">
-                <input type="text" ng-model="" class="form-control" id="inputText" placeholder="写日记的地点">
+                <input type="text" class="form-control" id="inputText" placeholder="写日记的地点">
             </div>
         </div>
-       
-        <textarea class="form-control" rows="3" placeholder="日记内容"></textarea>
+
+       <div class="form-group">
+            <div id="container" style="padding:15px;">
+                <textarea class="form-control" rows="3" placeholder="日记内容" name="msg" id="msg"></textarea>
+                <div><a href="JavaScript:void(0)" id="message_face">添加表情</a></div>
+                <br />
+                <div><a href="JavaScript:void(0)" id="show_face">显示表情</a></div>
+                <br />
+                <div class="show_e"></div>
+	        </div>
+       </div>
+
+        
 
         <div>
-            <label><input type="checkbox">只有自己可见</label>
-            <label><input type="checkbox">不允许被回复</label>
+            <label><input type="checkbox">&nbsp;只有自己可见</label>
+            &#x3000;
+            <label><input type="checkbox">&nbsp;不允许被回复</label>
             <span>还可以输入<b>22000</b> / 22000个字符</span>
         </div>
         
@@ -51,3 +63,13 @@
         
     </form>
 </div>
+
+<script type="text/javascript">
+    //放新浪微博表情
+    $("#message_face").jqfaceedit({txtAreaObj:$("#msg"),containerObj:$('#container'),top:25,left:-27});
+    //显示表情
+        $("#show_face").click(function(){
+        $('.show_e').html($('#msg').val());
+        $('.show_e').emotionsToHtml();
+    });
+</script>
