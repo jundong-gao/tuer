@@ -13,7 +13,7 @@ regApp.controller('regCtrl', function ($scope, $http) {
             console.log(data.code + ":" +data.message)
             if (data.code == 'success') {
                 $scope.data = data
-                location.href = '#/index'
+                location.href = '#/user_index'
             }
             else{
                 alert(data.message)
@@ -36,7 +36,7 @@ loginApp.controller('loginCtrl',function($scope,$http){
             if(data.code == 'success'){
                 $scope.data = data
                 console.log($scope.data.user)
-                location.href = '#/index'
+                location.href = '#/user_index'
             }
             else{
                 alert(data.message)

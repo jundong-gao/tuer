@@ -158,4 +158,12 @@ module.exports = function (app) {
             message : '退出成功'
         })
     })
+
+    app.get('/12',function(req,res){
+        res.status(200).json({
+            
+            code : '我是神',
+            user : req.session.user
+        })
+    })
 }

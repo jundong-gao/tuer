@@ -48,18 +48,19 @@
                 <a class="navbar-brand" href="#">兔耳日志</a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#" title="首页">首页<span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="#" title="首页" ng-show="!data.user.name">首页<span class="sr-only">(current)</span></a></li>
+                <li><a href="#/user_index" ng-show="data.user.name" ng-click="toggle()">user_index</a></li>
                 <li><a href="#/find" title="发现">发现</a></li>
                 <li class="dropdown"><a href="" title="公众号">微信公众号</a></li>
-                <li><a href="#/user">我的主页</a></li>
-                <li><a href="#/user_index">user_index</a></li>
+                <li><a href="#/user" ng-show="data.user.name">我的主页</a></li>
+                
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#/set">账号设置</a></li>
-                <li><a href="#/diary/write">写日记</a></li>
-                <li><a href="#/reg">注册</a></li>
-                <li class="dropdown" ng-show="!show"><a href="#/login">登陆</a></li>
-                <li><a ng-click="logout()">退出</a></li>
+                <li><a href="#/set" ng-show="data.user.name">账号设置</a></li>
+                <li><a href="#/diary/write" ng-show="data.user.name">写日记</a></li>
+                <li><a href="#/reg" ng-show="!data.user.name">注册</a></li>
+                <li class="dropdown" ng-show="!data.user.name"><a href="#/login">登陆</a></li>
+                <li><a ng-click="logout()" ng-show="data.user.name">退出</a></li>
             </ul>
         </div>
     </nav>

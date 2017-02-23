@@ -6,6 +6,17 @@ routerApp.run(function($rootScope , $state , $stateParams){
 })
 
 routerApp.controller('routerCtrl',function($scope,$http){
+
+    setInterval(function(){
+        $http.get('/12').success(function(data){
+            $scope.data = data;
+            console.log(data)
+        })
+    },500)
+
+    $scope.toggle = function(){
+        console.log($(this))
+    }
     $scope.logout = function(){
         $http.get('/logout').success(function(data){
             if(data.code == 'success'){
