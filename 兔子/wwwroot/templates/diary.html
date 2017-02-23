@@ -1,14 +1,14 @@
-<div class="container">
+<div class="container" ng-app="diaryApp" ng-controller="diaryCtrl">
     <h2>写日记</h2>
     <hr>
     <p>录一段语音日记吧<a href="">开始录制</a></p>
-    <form class="form-horizontal" ng-submit="postForm()" name="form">
+    <form class="form-horizontal" ng-submit="postForm()" >
         <div class="form-group">
             <div class="col-sm-3">
-                <select class="form-control ">
-                    <option value="">天气日记</option>
-                    <option value="">心情日记</option>
-                    <option value="">默认日记</option>
+                <select class="form-control">
+                    <option value="" >天气日记</option>
+                    <option value="" >心情日记</option>
+                    <option value="" >默认日记</option>
                 </select>
             </div>
             
@@ -19,25 +19,25 @@
         <div class="form-group">
             <label for="inputText" class="col-sm-1 control-label" style="text-align: left">心情:</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="inputText" placeholder="喜.怒.哀.乐..." required>
+                <input type="text" ng-model="formData.mood" name="mood" class="form-control" id="inputText" placeholder="喜.怒.哀.乐..." required >
             </div>
         </div>
         <div class="form-group">
             <label for="inputText" class="col-sm-1 control-label" style="text-align: left">天气:</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="inputText" placeholder="引.晴.雨.风..." required>
+                <input type="text" ng-model="formData.weather" name="weather" class="form-control" id="inputText" placeholder="引.晴.雨.风..." required>
             </div>
         </div>
         <div class="form-group">
             <label for="inputText" class="col-sm-1 control-label" style="text-align: left">地点:</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="inputText" placeholder="写日记的地点" required>
+                <input type="text" ng-model="formData.location" name="location" class="form-control" id="inputText" placeholder="写日记的地点" required>
             </div>
         </div>
 
        <div class="form-group">
             <div id="container" style="padding:15px;">
-                <textarea name="diary" class="form-control riji_text" rows="3" placeholder="日记内容" name="msg" id="msg" ng-maxlength="22000" required></textarea>
+                <textarea ng-model="formData.diary" class="form-control riji_text" rows="3" placeholder="日记内容" name="diary" id="msg" ng-maxlength="22000" required></textarea>
                 <div><a href="JavaScript:void(0)" id="message_face">添加表情</a></div>
                 <br />
                 <div><a href="JavaScript:void(0)" id="show_face">显示表情</a></div>
@@ -48,16 +48,16 @@
 
         
 
-        <div>
-            <label><input type="checkbox">&nbsp;只有自己可见</label>
-            &#x3000;
-            <label><input type="checkbox">&nbsp;不允许被回复</label>
-            <span class="riji_num">还可以输入<b>22000</b> / 22000个字符</span>
-        </div>
+            <div>
+                <label><input type="checkbox">&nbsp;只有自己可见</label>
+                &#x3000;
+                <label><input type="checkbox">&nbsp;不允许被回复</label>
+                <span class="riji_num">还可以输入<b>22000</b> / 22000个字符</span>
+            </div>
         
         <div class="form-group">
             <div class=" col-sm-10">
-                <button type="submit" class="btn btn-primary" ng-disabled="from.diary.$error">写日记</button>
+                <button type="submit" class="btn btn-primary" ng-disabled="form.diary.$error">写日记</button>
             </div>
         </div>
         
@@ -84,7 +84,7 @@
         }, 50);
     });
 
-    //140字检测
+    //22000字检测
     function riji_num() {
         var total = 22000;
         var len = $('.riji_text').val().length;

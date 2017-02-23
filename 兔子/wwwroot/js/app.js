@@ -1,8 +1,12 @@
-var routerApp = angular.module('routerApp',['ui.router','regApp','loginApp']);
+var routerApp = angular.module('routerApp',['ui.router','regApp','loginApp','diaryApp']);
 
 routerApp.run(function($rootScope , $state , $stateParams){
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
+})
+
+routerApp.controller('routerCtrl',function($rootScope,$scope){
+    $scope.show = $rootScope.show
 })
 
 // 设置路由

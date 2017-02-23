@@ -42,7 +42,7 @@
     <script src="js/jquery.emoticons.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default" ng-controller="routerCtrl">
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">兔耳日志</a>
@@ -58,7 +58,8 @@
                 <li><a href="#/set">账号设置</a></li>
                 <li><a href="#/diary/write">写日记</a></li>
                 <li><a href="#/reg">注册</a></li>
-                <li class="dropdown"><a href="#/login">登陆</a></li>
+                <li class="dropdown" ng-show="!show"><a href="#/login">登陆</a></li>
+                <li><a href="">{{show}}</a></li>
             </ul>
         </div>
     </nav>

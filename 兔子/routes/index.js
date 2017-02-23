@@ -3,7 +3,33 @@
 var User = require('../models/user');
 // 加密模块
 var crypto = require('crypto');
+// 引入diary类
+var Diary = require('../models/diary')
 
+
+
+
+// 权限函数
+function checkLogin(req,res,next){
+	if(!req.session.user){
+		res.status(200).json({
+            code : 'error',
+            message : '还未登陆，请先登陆'
+        })
+        return
+	}
+	next()
+}
+function checkNotLogin(req,res,next){
+	if(req.session.user){
+		res.status(200).json({
+            code:'error',
+            message : '请不要重复登陆'
+        })
+        return
+	}
+	next()
+}
 
 
 
@@ -55,6 +81,7 @@ module.exports = function (app) {
 
 
     // 登陆
+    app.post('/login',checkNotLogin)
     app.post('/login',(req,res)=>{
         var md5 = crypto.createHash('md5');
         var password = md5.update(req.body.password).digest('hex');
@@ -77,6 +104,23 @@ module.exports = function (app) {
                 message:'登陆成功',
                 user:req.session.user
             })
+        })
+    })
+
+
+    // 写日记
+    app.post('/diary',checkLogin)
+    app.post('/diary',function(req,res){
+        // 获取当前用户名
+        var currentUser = req.session.user.name;
+        console.log('当前用户',req.session.user.name)
+        console.log(req.body.diary)
+        var newDiary = new Diary(currentUser,req.body.mood,req.body.weather,req.body.location,req.body.diary);
+        newDiary.save(function(err){
+            if(err){
+                res.status(200).json({code:'error',message:'数据库错误'})
+            }
+            res.status(200).json({code:'success',message:'发布成功'})
         })
     })
 }

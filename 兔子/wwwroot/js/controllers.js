@@ -44,3 +44,24 @@ loginApp.controller('loginCtrl',function($scope,$http){
         })
     }
 })
+
+// 写日记
+var diaryApp = angular.module('diaryApp',[]);
+diaryApp.controller('diaryCtrl',function($scope,$http){
+    $scope.postForm = function(){
+        console.log($scope.formData)
+        $http({
+            method : 'POST',
+            url : '/diary',
+            data : $.param($scope.formData),
+            headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).success(function(data){
+           if(data.code == 'success'){
+               $scope.data = data;
+               location.href = '#/index'
+           }else{
+               alert(data.message)
+           }
+        })
+    }
+})

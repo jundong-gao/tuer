@@ -6,11 +6,11 @@ function time(){
     var date = new Date()
     return {
         year : date.getFullYear(),
-        month : date.getFullYear() + '-' + date.getMonth(),
-        date : date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate(),
-        hour : date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate() + '  ' + date.getHours(),
-        minute : date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes(),
-        second : date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()
+        month : date.getFullYear() + '-' +(date.getMonth() + 1) ,
+        date : date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate(),
+        hour : date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + '  ' + date.getHours(),
+        minute : date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes(),
+        second : date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()
     }
 }
 // 创建一个User类，给User类添加方法。
