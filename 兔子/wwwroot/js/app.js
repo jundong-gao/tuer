@@ -1,12 +1,21 @@
-var routerApp = angular.module('routerApp',['ui.router','regApp','loginApp','diaryApp']);
+var routerApp = angular.module('routerApp',['ui.router','regApp','loginApp','diaryApp','findApp']);
 
 routerApp.run(function($rootScope , $state , $stateParams){
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
 })
 
-routerApp.controller('routerCtrl',function($rootScope,$scope){
-    $scope.show = $rootScope.show
+routerApp.controller('routerCtrl',function($scope,$http){
+    $scope.logout = function(){
+        $http.get('/logout').success(function(data){
+            if(data.code == 'success'){
+                location.href = '#/index'
+            }
+            else{
+                alert(data.message)
+            }
+        })
+    }
 })
 
 // 设置路由

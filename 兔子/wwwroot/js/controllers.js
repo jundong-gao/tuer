@@ -58,10 +58,20 @@ diaryApp.controller('diaryCtrl',function($scope,$http){
         }).success(function(data){
            if(data.code == 'success'){
                $scope.data = data;
-               location.href = '#/index'
+               location.href = '#/find'
            }else{
                alert(data.message)
            }
         })
     }
+})
+
+
+// 发现页面。显示最近的所有日记
+var findApp = angular.module('findApp',[]);
+findApp.controller('findCtrl',function($scope,$http){
+    $http.get('/allDiary').success(function(data){
+        console.log(data.data)
+        $scope.data = data.data
+    })
 })

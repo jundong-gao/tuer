@@ -1,4 +1,6 @@
 
+// 引入mongodb 
+var mongodb = require('../models/db')
 // 引入User类
 var User = require('../models/user');
 // 加密模块
@@ -108,7 +110,7 @@ module.exports = function (app) {
     })
 
 
-    // 写日记
+    // 写日记，发布日记
     app.post('/diary',checkLogin)
     app.post('/diary',function(req,res){
         // 获取当前用户名
@@ -121,6 +123,39 @@ module.exports = function (app) {
                 res.status(200).json({code:'error',message:'数据库错误'})
             }
             res.status(200).json({code:'success',message:'发布成功'})
+        })
+    })
+
+    // 在首页显示日记
+    app.get('/allDiary',(req,res)=>{
+        mongodb.open(function(err,db){
+            if(err){
+                // 错误提示
+            }
+            db.collection('diarys',function(err,collection){
+                if(err){
+                    mongodb.close()
+                    // 错误提示
+                }
+                
+                collection.find().sort({time:-1}).toArray(function(err,docs){
+                    mongodb.close()
+                    if(err){
+                        // 错误
+                    }
+                    res.status(200).json({data : docs})
+                })
+            })
+        });
+    })
+
+    //退出功能
+    app.get('/logout',checkLogin)
+    app.get('/logout',function(req,res){
+        req.session.user = null;
+        res.status(200).json({
+            code : 'success',
+            message : '退出成功'
         })
     })
 }

@@ -1,7 +1,29 @@
-<div class="container">
+<div class="container" ng-app="findApp" ng-controller="findCtrl">
     <h2>全部日记</h2>
     <hr>
     <article>
-        这里将显示用户最近发表的日记
+        <div class="diary_row" ng-repeat="diary in data">
+        	<div class="diary_left">
+                作者头像
+        		<a href=""><img src="" alt=""></a>
+        	</div>
+        	<div class="diary_right">
+        		<h5>
+        			<a href="">{{diary.name}}的日记</a>
+        			&#x3000;
+        			<a href="">[{{diary.mood}}]</a>
+        		</h5>
+        		<div class="diary_content">
+        			<p>{{diary.diary}}</p>
+        		</div>
+        		<div class="bar">
+        			<small>{{diary.time.second}}</small>
+                    &#x3000;
+        			<small>{{diary.comments.length}}回复</small>
+        			<small>{{diary.pv}}喜欢</small>
+        			<small></small>
+        		</div>
+        	</div>
+        </div>
     </article>
 </div>
