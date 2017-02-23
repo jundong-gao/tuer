@@ -47,9 +47,9 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">兔耳日志</a>
             </div>
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav" id="nav-bar">
                 <li class="active"><a href="#" title="首页" ng-show="!data.user.name">首页<span class="sr-only">(current)</span></a></li>
-                <li><a href="#/user_index" ng-show="data.user.name" ng-click="toggle()">user_index</a></li>
+                <li><a href="#/user_index" ng-show="data.user.name">user_index</a></li>
                 <li><a href="#/find" title="发现">发现</a></li>
                 <li class="dropdown"><a href="" title="公众号">微信公众号</a></li>
                 <li><a href="#/user" ng-show="data.user.name">我的主页</a></li>
@@ -64,7 +64,11 @@
             </ul>
         </div>
     </nav>
-       
+    <script>
+        $('#nav-bar li').click(function(){
+            $(this).addClass('active').siblings().removeClass('active')
+        })
+    </script>
     
    
     <!--首先在首页定义一个视图，让路由来控制-->
