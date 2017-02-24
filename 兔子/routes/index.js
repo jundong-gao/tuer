@@ -10,6 +10,7 @@ var Diary = require('../models/diary')
 // multer模块
 var multer = require('multer')
 
+
 // 配置multer，上传头像使用
 var storage = multer.diskStorage({
 	destination : function (req,file,cb) {
@@ -214,5 +215,17 @@ module.exports = function (app) {
                 })
             })
         });
+    })
+
+
+    // 日记详情
+    app.get('/find/:name/:second',function(req,res){
+        // res.status(200).json({code:'success'})
+        Diary.getOne(req.params.name,req.params.second,function(err,diary){
+            if(err){
+                //
+            }
+            res.status(200).json({code:'success',data:diary})
+        })
     })
 }

@@ -9,11 +9,11 @@
         	</div>
         	<div class="diary_right">
         		<h5>
-        			<a href="">{{diary.name}}的日记</a>
-        			<a href=""><small>[日记分类]</small></a>
-        			<a href=""><small>[天气:{{diary.weather}}]</small></a>
-        			<a href=""><small>[心情:{{diary.mood}}]</small></a>
-        			<a href=""><small>[地点:{{diary.location}}]</small></a>
+        			<a href="#/find/{{diary.name}}/{{diary.time.second}}">{{diary.name}}的日记</a>
+        			<a href="#/{{diary.name}}/feilei"><small>[日记分类]</small></a>
+        			<a><small>[天气:{{diary.weather}}]</small></a>
+        			<a><small>[心情:{{diary.mood}}]</small></a>
+        			<a><small>[地点:{{diary.location}}]</small></a>
         		</h5>
         		<div class="diary_content">
         			<p>{{diary.diary}}</p>

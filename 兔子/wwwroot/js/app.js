@@ -1,4 +1,4 @@
-var routerApp = angular.module('routerApp',['ui.router','regApp','loginApp','diaryApp','findApp','uploadApp','shouyeApp']);
+var routerApp = angular.module('routerApp',['ui.router','regApp','loginApp','diaryApp','findApp','uploadApp','shouyeApp','articleApp']);
 
 routerApp.run(function($rootScope , $state , $stateParams){
     $rootScope.$state = $state;
@@ -123,6 +123,14 @@ routerApp.config(function($stateProvider, $urlRouterProvider){
                 },
                 'user_aside@user':{
                     templateUrl : 'templates/user_aside.html'
+                }
+            }
+        })
+        .state('xiangqing',{
+            url : '/find/:name/:second',
+            views :{
+                '':{
+                    templateUrl : 'templates/article.html'
                 }
             }
         })

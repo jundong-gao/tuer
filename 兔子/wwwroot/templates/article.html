@@ -1,0 +1,29 @@
+<div class="container" ng-app="articleApp" ng-controller="articleCtrl">
+    
+    <h4>{{data.name}}的日记<small>(nothing yet)</small></h4>
+    <span>{{data.name}} 的主页</span>
+    <div class="diary_row">
+        	<div class="diary_left">
+                <!--作者默认头像-->
+        		<a href=""><img src="../uploads/default.png" alt=""></a>
+        	</div>
+        	<div class="diary_right">
+        		<h5>
+        			<span>[日记分类]</span>
+                    <small>[天气:{{data.weather}}]</small>
+                    <small>[心情:{{data.mood}}]</small>
+                    <small>[地点:{{data.location}}]</small>
+        		</h5>
+        		<div class="diary_content">
+        			<p>{{data.diary}}</p>
+        		</div>
+        		<div class="bar">
+        			<small>{{data.time.second}}</small>
+                    &#x3000;
+        			<small>{{data.comments.length}}回复</small>
+        			<small>{{data.pv}}阅读</small>
+        			<small></small>
+        		</div>
+        	</div>
+        </div>
+</div>

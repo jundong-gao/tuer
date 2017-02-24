@@ -72,11 +72,12 @@ var findApp = angular.module('findApp',[]);
 findApp.controller('findCtrl',function($scope,$http){
     $http.get('/allDiary').success(function(data){
         console.log(data.data)
+        console.log(data.data[0]._id)
         $scope.data = data.data
     })
 })
 
-// 长传头像
+// 上传头像
 var uploadApp = angular.module('uploadApp',[]);
 uploadApp.controller('uploadCtrl',function($scope,$http){
     $scope.upload = function (){
@@ -98,5 +99,16 @@ shouyeApp.controller('shouyeCtrl',function($scope,$http){
     $http.get('/shouye').success(function(data){
         $scope.data = data.data;
         console.log(data)
+    })
+})
+
+
+// 日记详情
+var articleApp = angular.module('articleApp',[]);
+articleApp.controller('articleCtrl',function($scope,$http,$stateParams){
+    // console.log($stateParams.id)
+    $http.get('/find/' + $stateParams.name + '/' + $stateParams.second).success(function(data){
+        console.log(data.data)
+        $scope.data = data.data
     })
 })
