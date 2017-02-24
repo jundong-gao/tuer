@@ -1,5 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const favicon = require('serve-favicon')
+const path = require('path');
 // 引入settings.js文件
 var settings = require('./settings');
 // 引入flash模块
@@ -10,8 +12,11 @@ var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 
 
+
 var app = express();
 
+// 网站小图标
+app.use(favicon(path.join(__dirname, 'wwwroot', 'favicon.ico')));
 app.use(express.static('wwwroot'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(flash());

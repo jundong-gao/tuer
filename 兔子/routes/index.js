@@ -7,6 +7,22 @@ var User = require('../models/user');
 var crypto = require('crypto');
 // 引入diary类
 var Diary = require('../models/diary')
+// multer模块
+var multer = require('multer')
+
+// 配置multer，上传头像使用
+var storage = multer.diskStorage({
+	destination : function (req,file,cb) {
+		cb(null,'./wwwroot/uploads')
+    },
+	filename : function (req,file,cb) {
+		// cb(null,file.originalname)
+		// var filename = req.session.user.name + new Date().getTime() + file.originalname;
+        var filename = file.originalname;
+		cb(null,filename)
+    }
+})
+var upload = multer({storage:storage})
 
 
 
@@ -159,11 +175,44 @@ module.exports = function (app) {
         })
     })
 
+    // 判断是否有用户登录
     app.get('/12',function(req,res){
         res.status(200).json({
             
             code : '我是神',
             user : req.session.user
         })
+    })
+
+    // 上传头像
+    app.post('/upload',checkLogin)
+	app.post('/upload', upload.array('pic',2),function (req,res) {
+        res.status(200).json({
+            code : 'success',
+            message : '上传成功'
+        })
+    })
+
+    // 未登录的首页
+    app.get('/shouye',function(req,res){
+        mongodb.open(function(err,db){
+            if(err){
+                // 错误提示
+            }
+            db.collection('diarys',function(err,collection){
+                if(err){
+                    mongodb.close()
+                    // 错误提示
+                }
+                
+                collection.find(null,{limit:10}).sort({time:-1}).toArray(function(err,docs){
+                    mongodb.close()
+                    if(err){
+                        // 错误
+                    }
+                    res.status(200).json({data : docs})
+                })
+            })
+        });
     })
 }

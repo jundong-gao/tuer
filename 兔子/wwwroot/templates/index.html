@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" ng-app="shouyeApp" ng-controller="shouyeCtrl">
     <div style="background-color:#eee; color:#317eac;border:1px solid #ccc;padding:15px;">
         <h2>总有一些不经意的时光，需要被镌刻.</h2>
         此时已有1799位朋友创建了756本日记, 写下了4448件小事，1401个秘密，324条心愿
@@ -9,6 +9,28 @@
     </section>
     <hr>
     <article>
-        这里将显示所有用户最近发表的文章
+        <div class="diary_row" ng-repeat="diary in data">
+        	<div class="diary_left">
+                <!--作者默认头像-->
+        		<a href=""><img src="../uploads/default.png" alt=""></a>
+        	</div>
+        	<div class="diary_right">
+        		<h5>
+        			<a href="">{{diary.name}}的日记</a>
+        			&#x3000;
+        			<a href="">[{{diary.mood}}]</a>
+        		</h5>
+        		<div class="diary_content">
+        			<p>{{diary.diary}}</p>
+        		</div>
+        		<div class="bar">
+        			<small>{{diary.time.second}}</small>
+                    &#x3000;
+        			<small>{{diary.comments.length}}回复</small>
+        			<small>{{diary.pv}}喜欢</small>
+        			<small></small>
+        		</div>
+        	</div>
+        </div>
     </article>
 </div>

@@ -75,3 +75,28 @@ findApp.controller('findCtrl',function($scope,$http){
         $scope.data = data.data
     })
 })
+
+// 长传头像
+var uploadApp = angular.module('uploadApp',[]);
+uploadApp.controller('uploadCtrl',function($scope,$http){
+    $scope.upload = function (){
+        $http({
+            method : "POST",
+            url : "/upload",
+            data : $scope.formData
+        }).success(function(data){
+            alert(data.code)
+            console.log(data)
+        })
+    }
+})
+
+// 未登录的时候显示的首页
+// 显示十篇日记
+var shouyeApp = angular.module('shouyeApp',[]);
+shouyeApp.controller('shouyeCtrl',function($scope,$http){
+    $http.get('/shouye').success(function(data){
+        $scope.data = data.data;
+        console.log(data)
+    })
+})

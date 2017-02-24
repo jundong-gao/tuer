@@ -121,4 +121,8 @@ input[type=color]{
 .diary_right{
   width: calc(100% - 60px);
 }
+/*导航栏设置*/
+#nav-bar li a{
+  outline: none;
+}
 

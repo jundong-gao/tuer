@@ -4,14 +4,16 @@
     <article>
         <div class="diary_row" ng-repeat="diary in data">
         	<div class="diary_left">
-                作者头像
-        		<a href=""><img src="" alt=""></a>
+                <!--作者默认头像-->
+        		<a href=""><img src="../uploads/default.png" alt=""></a>
         	</div>
         	<div class="diary_right">
         		<h5>
         			<a href="">{{diary.name}}的日记</a>
-        			&#x3000;
-        			<a href="">[{{diary.mood}}]</a>
+        			<a href=""><small>[日记分类]</small></a>
+        			<a href=""><small>[天气:{{diary.weather}}]</small></a>
+        			<a href=""><small>[心情:{{diary.mood}}]</small></a>
+        			<a href=""><small>[地点:{{diary.location}}]</small></a>
         		</h5>
         		<div class="diary_content">
         			<p>{{diary.diary}}</p>

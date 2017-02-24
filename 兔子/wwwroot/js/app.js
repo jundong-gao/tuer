@@ -1,4 +1,4 @@
-var routerApp = angular.module('routerApp',['ui.router','regApp','loginApp','diaryApp','findApp']);
+var routerApp = angular.module('routerApp',['ui.router','regApp','loginApp','diaryApp','findApp','uploadApp','shouyeApp']);
 
 routerApp.run(function($rootScope , $state , $stateParams){
     $rootScope.$state = $state;
@@ -10,7 +10,7 @@ routerApp.controller('routerCtrl',function($scope,$http){
     setInterval(function(){
         $http.get('/12').success(function(data){
             $scope.data = data;
-            console.log(data)
+            // console.log(data)
         })
     },500)
 

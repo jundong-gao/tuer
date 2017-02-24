@@ -26,6 +26,7 @@ Diary.prototype.save = function(callback){
         name : this.name,
         time : time,
         mood :this.mood,
+        location  : this.location,
         weather : this.weather,
         diary : this.diary,
         comments : [],
