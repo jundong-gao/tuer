@@ -127,10 +127,19 @@ routerApp.config(function($stateProvider, $urlRouterProvider){
             }
         })
         .state('xiangqing',{
-            url : '/find/:name/:second',
+            url : '/diarys/:name/:second',
             views :{
                 '':{
                     templateUrl : 'templates/article.html'
+                }
+            }
+        })
+        // 首页详情
+        .state('shouyexiangqing',{
+            url:'/diarys/:name/:second',
+            views:{
+                '':{
+                    templates:'templates/article.html'
                 }
             }
         })

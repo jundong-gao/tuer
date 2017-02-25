@@ -9,6 +9,8 @@ var crypto = require('crypto');
 var Diary = require('../models/diary')
 // multer模块
 var multer = require('multer')
+// 引入留言
+var Comment = require('../models/comment')
 
 
 // 配置multer，上传头像使用
@@ -219,13 +221,37 @@ module.exports = function (app) {
 
 
     // 日记详情
-    app.get('/find/:name/:second',function(req,res){
+    app.get('/diarys/:name/:second',function(req,res){
         // res.status(200).json({code:'success'})
         Diary.getOne(req.params.name,req.params.second,function(err,diary){
             if(err){
                 //
             }
-            res.status(200).json({code:'success',data:diary})
+            res.status(200).json({code:'success',data:diary , user : req.session.user})
+        })
+    })
+
+    // 留言
+    app.post('/comment/:name/:second',function(req,res){
+        var date = new Date(),
+            time = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + ":" + (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes());
+
+        var comment = {
+            name : req.params.name,
+            second : req.params.second,
+            time : time,
+            content:req.body.content,
+            user: req.session.user
+        }
+        console.log('comment',comment)
+        var newComment = new Comment(req.params.name,req.params.second,comment);
+
+        newComment.save(function(err){
+            if(err){
+                res.status(200).json({code:'error',message:'数据库错误'})
+                return
+            }
+            res.status(200).json({code:'success',message:'留言成功'})
         })
     })
 }

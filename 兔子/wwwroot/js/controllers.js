@@ -107,8 +107,26 @@ shouyeApp.controller('shouyeCtrl',function($scope,$http){
 var articleApp = angular.module('articleApp',[]);
 articleApp.controller('articleCtrl',function($scope,$http,$stateParams){
     // console.log($stateParams.id)
-    $http.get('/find/' + $stateParams.name + '/' + $stateParams.second).success(function(data){
+    $http.get('/diarys/' + $stateParams.name + '/' + $stateParams.second).success(function(data){
         console.log(data.data)
         $scope.data = data.data
+        $scope.user = data.user
+        
     })
+    $scope.postForm = function(){
+
+        // 提交回复
+        $http({
+            method : 'POST',
+            url : '/comment/' + $scope.data.name + '/' + $scope.data.time.second,
+            data : $.param($scope.formData),
+            headers : {'Content-Type': 'application/x-www-form-urlencoded'} 
+        }).success(function(data){
+            if(data.code == 'success'){
+                location.reload()
+            }else{
+                alert(data.message)
+            }
+        })
+    }
 })

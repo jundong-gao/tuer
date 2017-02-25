@@ -125,4 +125,22 @@ input[type=color]{
 #nav-bar li a{
   outline: none;
 }
+/*  */
+#zhuyebiaoqian{
+  background-color: blue;
+  border: 1px solid blue;
+  display: inline-block;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+}
+#zhuyebiaoqian:hover{
+  background-color: transparent;
+  color: blue;
+  cursor: pointer;
+}
 
+/* 回复区域 */
+.comment{
+  padding-left: 55px;
+}
