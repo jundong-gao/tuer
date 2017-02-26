@@ -116,7 +116,7 @@ routerApp.config(function($stateProvider, $urlRouterProvider){
             url : '/user',
             views : {
                 '' : {
-                    templateUrl : 'templates/user.html'
+                    templateUrl : 'templates/user_dangqian.html'
                 },
                 // 'profile@user' :{
                 //     templateUrl : 'templates/profile.html'

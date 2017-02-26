@@ -1,16 +1,17 @@
 <div class="container" ng-app="userApp" ng-controller="userCtrl">
-    <h2><span>{{data[0].name}}</span>的动态</h2>
+    <h2><span>{{data.user.name}}</span>的动态</h2>
     <hr>
     <div class="row">
         <div class="col-md-8">
             <div>
-                这里即将显示动态页asd...
+                <p ng-if="data.data.length == 0">你还没有发表动态哟~</p>
+                
                 <div>
                     <!--这里显示登陆的用户的所有的文章日记...-->
-                    <h4>{{data[0].name}}<small>日记({{data.length}})</small></h4>
-                    <div ng-repeat="diary in data">
+                    <h4>{{data.user.name}}<small>日记({{data.data.length}})</small></h4>
+                    <div ng-repeat="diary in data.data">
                         <h5>
-                            <a href="#/diarys/{{diary.name}}/{{diary.time.second}}">{{data[0].name}}的日记</a>
+                            <a href="#/diarys/{{diary.name}}/{{diary.time.second}}">{{data.user.name}}的日记</a>
                             <a ><small>[日记分类]</small></a>
                         </h5>
                         <div class="diary_content">

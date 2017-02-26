@@ -150,8 +150,7 @@ var userApp = angular.module('userApp',[]);
 userApp.controller('userCtrl',function($scope,$http){
 
     $http.get('/user/index').success(function(data){
-        console.log(data)
-        $scope.data = data.data 
+        $scope.data = data
     })
 })
 
