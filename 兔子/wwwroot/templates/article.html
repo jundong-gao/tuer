@@ -1,7 +1,8 @@
 <div class="container" ng-app="articleApp" ng-controller="articleCtrl">
     
     <h4>{{data.name}}的日记<small>(nothing yet)</small></h4>
-    <span id="zhuyebiaoqian">{{data.name}} 的主页</span>
+    <!--<span id="zhuyebiaoqian">{{data.name}} 的主页</span>-->
+	<a href="#/{{data.name}}" id="zhuyebiaoqian">{{data.name}}的主页</a>
     <div class="diary_row">
 		<div class="diary_left">
 			<!--作者默认头像-->
@@ -66,6 +67,6 @@
 	</div>
 
 
-	<p style="padding-left: 55px; padding-top: 20px; overflow: hidden"><a href="#/login">只有在登录以后才可以评论哟~</a></p>
+	<p style="padding-left: 55px; padding-top: 20px; overflow: hidden;" ng-show="!user"><a href="#/login">只有在登录以后才可以评论哟~</a></p>
 
 </div>

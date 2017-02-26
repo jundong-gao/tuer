@@ -1,15 +1,69 @@
-<div class="container">
-    <h2>神仙<small>(nothing yet...)</small></h2>
+<div class="container" ng-app="allApp" ng-controller="allCtrl">
+    <h2>{{data[0].name}}<small>(nothing yet...)</small></h2>
     <hr>
     <div class="row">
         <div class="col-md-8">
-            <div ui-view="profile">
-                这里显示登陆的用户的所有的文章日记...
+            <div>
+                <!--这里显示登陆的用户的所有的文章日记...-->
+                <h4>{{data[0].name}}<small>日记({{data.length}})</small></h4>
+                <div ng-repeat="diary in data">
+                    <h5>
+                        <a href="#/diarys/{{diary.name}}/{{diary.time.second}}">{{data[0].name}}的日记</a>
+                        <a ><small>[日记分类]</small></a>
+                    </h5>
+                    <div class="diary_content">
+                        <p>{{diary.diary}}</p>
+                    </div>
+                    <div class="bar">
+                        <small>{{diary.time.second}}</small>
+                        &#x3000;
+                        <small>{{diary.comments.length}}回复</small>
+                        <small>{{diary.pv}}阅读</small>
+                        <small></small>
+                    </div>
+                    <br>
+                </div>
             </div>
         </div>
         <div class="col-md-4">
-            <div ui-view="user_aside">
-               这里即将显示右侧的工具栏...
+            <div>
+               <div>
+                    <div class="user-box">
+                        <dl>
+                            <dt>
+                                <img src="images/二维码.png" alt="">
+                            </dt>
+                            <dd>{{data[0].name}}于{{data[0].time.day}}加入</dd>
+                            <dd>
+                                <div class="btn-group">
+                                    <label class="btn btn-default">
+                                        <a href="">TODOS</a>
+                                    </label>
+                                    <label class="btn btn-default">
+                                        <a href="">RSS</a>
+                                    </label>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <h4>神仙的日记本(3)</h4>
+                    <ul>
+                        <li><span class="bookcover"></span><a href="">天气日记(0)</a></li>
+                        <li><span class="bookcover"></span><a href="">心情日记(0)</a></li>
+                        <li><span class="bookcover"></span><a href="">默认日记(0)</a></li>
+                    </ul>
+
+                    <h4>神仙关注的人</h4>
+                    <p>额，他还没有关注任何人</p>
+
+                    <h4>关注神仙的人</h4>
+                    <ul>
+                        <li>
+                            <a href=""><img src="" alt=""></a>
+                            <span>穷尽一生</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

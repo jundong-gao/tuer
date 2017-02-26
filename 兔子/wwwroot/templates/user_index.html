@@ -1,15 +1,87 @@
-<div class="container">
-    <h2><span>神仙</span>的动态</h2>
+<div class="container" ng-app="userApp" ng-controller="userCtrl">
+    <h2><span>{{data[0].name}}</span>的动态</h2>
     <hr>
     <div class="row">
         <div class="col-md-8">
-            <div ui-view="main">
-                这里即将显示动态页...
+            <div>
+                这里即将显示动态页asd...
+                <div>
+                    <!--这里显示登陆的用户的所有的文章日记...-->
+                    <h4>{{data[0].name}}<small>日记({{data.length}})</small></h4>
+                    <div ng-repeat="diary in data">
+                        <h5>
+                            <a href="#/diarys/{{diary.name}}/{{diary.time.second}}">{{data[0].name}}的日记</a>
+                            <a ><small>[日记分类]</small></a>
+                        </h5>
+                        <div class="diary_content">
+                            <p>{{diary.diary}}</p>
+                        </div>
+                        <div class="bar">
+                            <small>{{diary.time.second}}</small>
+                            &#x3000;
+                            <small>{{diary.comments.length}}回复</small>
+                            <small>{{diary.pv}}阅读</small>
+                            <small></small>
+                        </div>
+                        <br>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-md-4">
             <div ui-view="aside">
-               这里即将显示右侧的工具栏...
+               <div class="aside">
+                    <div class="btn-group tools" data-toggle="" >
+                        <label class="btn btn-default active">
+                            <a href="#/diary/write">写日记</a>
+                        </label>
+                        <label class="btn btn-default">
+                            <a href="">说说</a>
+                        </label>
+                        <label class="btn btn-default">
+                            <a href="#/notebook">管理日记本</a>
+                        </label>
+                        <label class="btn btn-default">
+                            <a href="">管理TODO</a>
+                        </label>
+                    </div>
+                    <hr>
+
+                    <!-- 显示时间 -->
+                    <div>
+                        <span style="font-size:18px;text-align:center;display:block;padding:10px;line-height:30px;background:#f9f9f9;color:#317eac;">
+                            <span id="time">倒计时</span>
+                            <br>
+                            <span style="font-size:12px;">(GMT+8 GreenWich Mean Time)</span>
+                        </span>
+                        <hr>
+                        <small style="color:#317eac;font-size:12px;">连续来过: 1 天,连续最长 2 天,共登陆过 3 天</small>
+                        <br>
+                        <small style="color:#317eac;font-size:12px;">最近登陆时间: 2017-02-22  09:46:30 </small>
+                    </div>
+                    <hr>
+
+                    <!-- 问题栏 -->
+                    <div>
+                        <ul>
+                            <li><a href="baidu.com" target="_blank">关于封号处理的说明。</a></li>
+                            <li><a href="" target="_blank">头像更换不了的说明。</a></li>
+                            <li><a href="" target="_blank">举报非法或广告日记。</a></li>
+                        </ul>
+                    </div>
+
+                    <h3>更新动态</h3>
+                    <hr>
+                    显示最近发布的动态
+
+                    <h3>活跃用户</h3>
+                    <hr>
+                    这里显示发表动态最多的用户
+
+                    <h3>最近登录的用户</h3>
+                    <hr>
+                    这里显示最近登录的用户。
+                </div>
             </div>
         </div>
     </div>

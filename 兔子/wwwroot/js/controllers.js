@@ -130,3 +130,22 @@ articleApp.controller('articleCtrl',function($scope,$http,$stateParams){
         })
     }
 })
+
+// 获取某个用户的全部日记
+var allApp = angular.module('allApp',[]);
+allApp.controller('allCtrl',function($scope,$http,$stateParams){
+    console.log($stateParams.name)
+    $http.get('/' + $stateParams.name).success(function(data){
+        $scope.data = data.data
+    })
+})
+
+// 获取当前用户的日记
+var userApp = angular.module('userApp',[]);
+userApp.controller('userCtrl',function($scope,$http){
+
+    $http.get('/user/index').success(function(data){
+        console.log(data)
+        $scope.data = data.data 
+    })
+})

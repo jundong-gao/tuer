@@ -1,4 +1,4 @@
-var routerApp = angular.module('routerApp',['ui.router','regApp','loginApp','diaryApp','findApp','uploadApp','shouyeApp','articleApp']);
+var routerApp = angular.module('routerApp',['ui.router','regApp','loginApp','diaryApp','findApp','uploadApp','shouyeApp','articleApp','allApp','userApp']);
 
 routerApp.run(function($rootScope , $state , $stateParams){
     $rootScope.$state = $state;
@@ -104,12 +104,12 @@ routerApp.config(function($stateProvider, $urlRouterProvider){
                 '':{
                     templateUrl : 'templates/user_index.html'
                 },
-                'main@user_index':{
-                    templateUrl : 'templates/dynamic.html'
-                },
-                'aside@user_index':{
-                    templateUrl:'templates/aside.html'
-                }
+                // 'main@user_index':{
+                //     templateUrl : 'templates/dynamic.html'
+                // },
+                // 'aside@user_index':{
+                //     templateUrl:'templates/aside.html'
+                // }
             }
         })
         .state('user',{
@@ -118,12 +118,12 @@ routerApp.config(function($stateProvider, $urlRouterProvider){
                 '' : {
                     templateUrl : 'templates/user.html'
                 },
-                'profile@user' :{
-                    templateUrl : 'templates/profile.html'
-                },
-                'user_aside@user':{
-                    templateUrl : 'templates/user_aside.html'
-                }
+                // 'profile@user' :{
+                //     templateUrl : 'templates/profile.html'
+                // },
+                // 'user_aside@user':{
+                //     templateUrl : 'templates/user_aside.html'
+                // }
             }
         })
         .state('xiangqing',{
@@ -140,6 +140,21 @@ routerApp.config(function($stateProvider, $urlRouterProvider){
             views:{
                 '':{
                     templates:'templates/article.html'
+                }
+            }
+        })
+        // 某某主页
+        .state('name',{
+            url:'/:name',
+            views : {
+                '': {
+                    templateUrl : 'templates/user.html' 
+                },
+                'profile.@user' : {
+                    templateUrl : 'templates/profile.html'
+                },
+                'user_aside@user':{
+                    templateUrl : 'templates/user_aside.html'
                 }
             }
         })

@@ -254,4 +254,27 @@ module.exports = function (app) {
             res.status(200).json({code:'success',message:'留言成功'})
         })
     })
+
+
+    // 显示某个作者的全部日记
+    app.get('/:name',function(req,res){
+        Diary.getAll(req.params.name,function(err,diary){
+            if(err){
+                res.status(200).json({code :'error' , message : '数据库错误'})
+            }
+            res.status(200).json({code:'success', data:diary , user : req.session.user})
+        })
+    })
+
+
+    // 获取当前用户的所有日记
+    app.get('/user/index',function(req,res){
+        console.log(req.session.user.name)
+        Diary.getAll(req.session.user.name,function(err,diary){
+            if(err){
+                res.status(200).json({code :'error' , message : '数据库错误'})
+            }
+            res.status(200).json({code:'12', data:diary , user : req.session.user})
+        })
+    })  
 }
