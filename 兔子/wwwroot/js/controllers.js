@@ -154,3 +154,22 @@ userApp.controller('userCtrl',function($scope,$http){
         $scope.data = data.data 
     })
 })
+
+// 找回密码
+var forgotApp = angular.module('forgotApp',[]);
+forgotApp.controller('forgotCtrl',function($scope,$http){
+    $scope.postForm = function(){
+        $http({
+            method : 'POST',
+            url : '/user/forgot',
+            data : $.param($scope.formData),
+            headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).success(function(data){
+            if(data.code = 'success'){
+                alert('密码是：' + data.data.password + ',请妥善保管！'+ '\n' +'请使用在线解密工具，查看密码！http://www.cmd5.com' )
+            }else{
+                alert(data.message)
+            }
+        })
+    }
+})

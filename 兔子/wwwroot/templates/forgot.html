@@ -1,18 +1,19 @@
 
-<div class="container">
+<div class="container" ng-app="forgotApp" ng-controller="forgotCtrl">
     <h3>登陆兔儿</h3>
     <hr>
     <form class="form-horizontal" ng-submit="postForm()">
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">注册时的邮箱</label>
             <div class="col-sm-4">
-                <input type="email" ng-model="formData.username" class="form-control" id="inputEmail3" placeholder="Email...">
+                <input type="email" ng-model="formData.email" class="form-control" id="inputEmail3" placeholder="Email...">
             </div>
         </div>
         <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                我们会把新的密码发送到你注册的邮箱里
-            </div>           
+            <label for="inputName" class="col-sm-2 control-label">用户名</label>
+            <div class="col-sm-4">
+                <input type="name" ng-model="formData.username" class="form-control" id="inputName" placeholder="username...">
+            </div>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">

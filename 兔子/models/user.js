@@ -77,3 +77,27 @@ User.get = function(name,callback){
         })
     })
 }
+
+// 找回密码
+User.getPassword = function(name,email,callback){
+    mongodb.open(function(err,db){
+        if(err){
+            return callback(err)
+        }
+        db.collection('users',function(err,collection){
+            if(err){
+                mongodb.close()
+                return callback(err)
+            }
+            // 此处通过name和email查询数据库
+            collection.findOne({name:name,email:email},function(err,user){
+                mongodb.close()
+                if(err){
+                    callback(err)
+                }
+                // 直接返回数据(用户的信息)
+                callback(null,user);
+            })
+        })
+    })
+}

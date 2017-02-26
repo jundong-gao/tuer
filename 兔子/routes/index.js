@@ -276,5 +276,21 @@ module.exports = function (app) {
             }
             res.status(200).json({code:'12', data:diary , user : req.session.user})
         })
-    })  
+    })
+    
+    // 找回密码
+    app.post('/user/forgot',function(req,res){
+        User.get(req.body.username,(err,user)=>{
+            if(!user){
+                res.status(200).json({code:'error',message:'该用户名不存在'});
+                return;
+            }
+            //检查邮箱是否一致
+            if(user.email != req.body.email){
+                res.status(200).json({code:'error',message:'邮箱不正确'});
+                return;
+            }
+            res.status(200).json({code:'success',data:user})
+        })
+    })
 }
