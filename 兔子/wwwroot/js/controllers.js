@@ -123,7 +123,12 @@ articleApp.controller('articleCtrl',function($scope,$http,$stateParams){
             headers : {'Content-Type': 'application/x-www-form-urlencoded'} 
         }).success(function(data){
             if(data.code == 'success'){
-                location.reload()
+                $http.get('/diarys/' + $stateParams.name + '/' + $stateParams.second).success(function(data){
+                    console.log(data.data)
+                    $scope.data = data.data
+                    $scope.user = data.user
+                })
+                $('textarea').val('')
             }else{
                 alert(data.message)
             }

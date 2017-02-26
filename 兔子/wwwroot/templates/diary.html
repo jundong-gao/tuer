@@ -38,11 +38,6 @@
        <div class="form-group">
             <div id="container" style="padding:15px;">
                 <textarea ng-model="formData.diary" class="form-control riji_text" rows="3" placeholder="日记内容" name="diary" id="msg" ng-maxlength="22000" required></textarea>
-                <div><a href="JavaScript:void(0)" id="message_face">添加表情</a></div>
-                <br />
-                <div><a href="JavaScript:void(0)" id="show_face">显示表情</a></div>
-                <br />
-                <div class="show_e"></div>
 	        </div>
        </div>
 
@@ -65,14 +60,6 @@
 </div>
 
 <script type="text/javascript">
-    //放新浪微博表情
-    $("#message_face").jqfaceedit({txtAreaObj:$("#msg"),containerObj:$('#container'),top:25,left:-27});
-    //显示表情
-        $("#show_face").click(function(){
-        $('.show_e').html($('#msg').val());
-        $('.show_e').emotionsToHtml();
-    });
-
 
     // 检测字数
     //日记输入内容计算字个数
